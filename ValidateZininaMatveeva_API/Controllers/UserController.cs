@@ -3,6 +3,7 @@ using ValidateZininaMatveeva_API.Models;
 
 namespace ValidateZininaMatveeva_API.Controllers
 {
+    [Route("api/[controller]")]
     public class UserController : Controller
     {
         private static List<User> _users = new List<User>()
@@ -28,5 +29,11 @@ namespace ValidateZininaMatveeva_API.Controllers
               new User() { Fullname= "Дмитриева Кристина Алексеевна"},
               new User() { Fullname= "Тимофеев Ни%кита Владиславович"},
         };
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_users);
+        }
     }
 }
